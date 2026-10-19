@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Center Lemes | Oficina de caminhões em Votorantim/SP: manutenção de suspensão, freios, soldas, embuchamentos e arqueamento de molejos, com peças a pronta entrega. Rod. Raimundo Antunes Soares, 4037 — Capoavinha, Votorantim/SP. Mais de 15 anos de experiência." />
+    <link rel="icon" href="data:," />
+    <title>Center Lemes | Oficina de Caminhões em Votorantim/SP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/asset-01.css" />
+    <style>
+      :root{
+        color-scheme: dark;
+        --bg:#0a0a0b;
+        --bg-2:#101012;
+        --panel:#141416;
+        --panel-2:#1b1b1e;
+        --line:rgba(255,255,255,.09);
+        --ink:#f2f0ea;
+        --muted:#a8a49a;
+        --gold:#ffc400;
+        --gold-deep:#e0a800;
+        --gold-ink:#161200;
+        --wa:#22b45e;
+        --hazard-a:#ffc400;
+        --hazard-b:#0a0a0b;
+        --shadow:0 24px 60px rgba(0,0,0,.5);
+        --radius:14px;
+        --font-body:"Barlow",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;
+        --font-display:"Barlow Condensed","Arial Narrow",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      }
+      @media (prefers-color-scheme: light){
+        :root{
+          color-scheme: light;
+          --bg:#f2f0eb;
+          --bg-2:#eae7df;
+          --panel:#ffffff;
+          --panel-2:#f7f5f0;
+          --line:rgba(20,18,8,.12);
+          --ink:#17150f;
+          --muted:#5d594f;
+          --gold:#f5b800;
+          --gold-deep:#c98f00;
+          --gold-ink:#161200;
+          --hazard-b:#17150f;
+          --shadow:0 24px 50px rgba(30,25,5,.16);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;background:var(--bg);color:var(--ink);
+        font-family:var(--font-body);font-size:17px;line-height:1.6;
+        -webkit-font-smoothing:antialiased;overflow-x:hidden;
+      }
+      img{max-width:100%;display:block}
+      a{color:inherit}
+      :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+      section{scroll-margin-top:92px}
+      .wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+      @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+
+      /* ---------- scroll progress ---------- */
+      #progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold));z-index:200}
+
+      /* ---------- header ---------- */
+      header{
+        position:fixed;inset:0 0 auto 0;z-index:100;
+        transition:background .35s ease,border-color .35s ease,backdrop-filter .35s ease;
+        border-bottom:1px solid transparent;
+      }
+      header.scrolled{background:rgba(9,9,11,.88);backdrop-filter:blur(14px);border-bottom-color:rgba(255,255,255,.1)}
+      .nav{display:flex;align-items:center;gap:28px;height:74px}
+      .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+      .brand .gear{width:42px;height:42px;color:var(--gold);animation:spin 26s linear infinite}
+      @keyframes spin{to{transform:rotate(360deg)}}
+      .brand-name{font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:.04em;line-height:.95;text-transform:uppercase;color:#f4f1e9}
+      .brand-name small{display:block;font-size:11.5px;letter-spacing:.32em;color:var(--gold);font-weight:600}
+      .nav-links{display:flex;gap:30px;margin-left:auto}
+      .nav-links a{text-decoration:none;font-weight:600;font-size:15.5px;color:rgba(244,241,233,.78);position:relative;padding:6px 0}
+      .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .3s ease}
+      .nav-links a:hover{color:#fff}
+      .nav-links a:hover::after{width:100%}
+      .nav-cta{display:flex;align-items:center;gap:12px;margin-left:8px}
+      .btn{
+        display:inline-flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer;
+        font-weight:700;font-size:16px;line-height:1;padding:15px 26px;border-radius:10px;border:0;
+        transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+        min-height:48px;
+      }
+      .btn svg{width:20px;height:20px;flex-shrink:0}
+      .btn-gold{background:var(--gold);color:var(--gold-ink);box-shadow:0 10px 30px rgba(255,196,0,.22)}
+      .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(255,196,0,.32)}
+      .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+      .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+      .btn-wa{background:var(--wa);color:#fff}
+      .btn-wa:hover{transform:translateY(-2px)}
+      .btn-sm{padding:11px 18px;font-size:15px;min-height:44px}
+      #menuBtn{display:none;background:none;border:1px solid rgba(255,255,255,.35);border-radius:10px;width:46px;height:46px;cursor:pointer;color:#f4f1e9;align-items:center;justify-content:center}
+      #menuBtn svg{width:24px;height:24px}
+      .mobile-menu{display:none}
+      @media (max-width:900px){
+        .nav-links,.nav .btn{display:none}
+        .nav-cta{margin-left:auto}
+        #menuBtn{display:inline-flex}
+        .mobile-menu{
+          position:fixed;inset:74px 0 auto 0;z-index:99;
+          background:#0a0a0c;
+          border-bottom:1px solid rgba(255,255,255,.12);padding:10px 20px 22px;
+        }
+        .mobile-menu.open{display:block}
+        .mobile-menu a{display:block;padding:13px 4px;text-decoration:none;font-weight:600;font-size:18px;color:#f4f1e9;border-bottom:1px solid rgba(255,255,255,.1)}
+        .mobile-menu a:last-child{border-bottom:0}
+      }
+
+      /* ---------- hero ---------- */
+      .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#070708}
+      .hero-media{position:absolute;inset:0}
+      .hero-media img{width:100%;height:112%;object-fit:cover;object-position:center 38%;will-change:transform}
+      .hero-video{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center 38%;opacity:0;transition:opacity 1.2s ease}
+      .hero-video.on{opacity:1}
+      .hero-media::after{
+        content:"";position:absolute;inset:0;z-index:2;
+        background:linear-gradient(180deg,rgba(5,5,6,.62) 0%,rgba(5,5,6,.28) 34%,rgba(5,5,6,.72) 68%,#070708 100%),
+                   linear-gradient(90deg,rgba(5,5,6,.72) 0%,rgba(5,5,6,.12) 60%);
+      }
+      #sparks{position:absolute;inset:0;pointer-events:none}
+      .hero-content{position:relative;z-index:3;padding:150px 0 0;color:#f4f1e9}
+      .hero-badge{
+        display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,196,0,.45);
+        color:#ffd94d;border-radius:999px;padding:7px 15px;font-size:13.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+        background:rgba(10,10,10,.45);backdrop-filter:blur(6px);
+      }
+      .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+      .hero h1{
+        font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+        font-size:clamp(52px,9.2vw,118px);line-height:.94;letter-spacing:.005em;
+        margin:22px 0 8px;max-width:12ch;
+      }
+      .hero h1 .stroke{color:transparent;-webkit-text-stroke:2px var(--gold)}
+      .hero-sub{font-size:clamp(17px,2.2vw,21px);max-width:56ch;color:#d9d5c9;margin:14px 0 30px}
+      .hero-sub strong{color:#fff}
+      .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+      .hero-actions .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+      .hero-actions .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+      .hero-stats{
+        position:relative;z-index:3;margin-top:52px;border-top:1px solid rgba(255,255,255,.14);
+        display:grid;grid-template-columns:repeat(4,1fr);
+      }
+      .stat{padding:22px 26px 30px;border-right:1px solid rgba(255,255,255,.1)}
+      .stat:last-child{border-right:0}
+      .stat b{font-family:var(--font-display);font-size:clamp(34px,4.4vw,52px);font-weight:700;color:var(--gold);display:block;line-height:1}
+      .stat > span{font-size:14.5px;color:#c9c5b9;display:block;margin-top:6px;line-height:1.35}
+      @media (max-width:760px){
+        .hero-stats{grid-template-columns:1fr 1fr;padding-bottom:88px}
+        .stat{padding:18px 16px 22px}
+        .stat:nth-child(2){border-right:0}
+        .stat:nth-child(2),.stat:nth-child(4){padding-right:88px}
+        .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.1)}
+      }
+      .scroll-cue{
+        position:absolute;right:26px;bottom:118px;z-index:3;color:rgba(255,255,255,.55);
+        font-size:11px;letter-spacing:.34em;text-transform:uppercase;writing-mode:vertical-rl;
+        display:flex;align-items:center;gap:12px;
+      }
+      .scroll-cue::after{content:"";width:1px;height:52px;background:linear-gradient(var(--gold),transparent);animation:cue 2.2s ease-in-out infinite}
+      @keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1)}}
+      @media (max-width:760px){.scroll-cue{display:none}}
+
+      .hazard{height:12px;background:repeating-linear-gradient(-45deg,var(--hazard-a) 0 18px,var(--hazard-b) 18px 36px)}
+
+      /* ---------- marquee ---------- */
+      .marquee{background:var(--bg-2);border-block:1px solid var(--line);overflow:hidden;padding:15px 0}
+      .marquee-track{display:flex;gap:0;width:max-content;animation:marquee 26s linear infinite}
+      .marquee:hover .marquee-track{animation-play-state:paused}
+      .marquee-track span{
+        font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.12em;
+        font-size:21px;color:var(--muted);padding:0 14px;white-space:nowrap;display:flex;align-items:center;gap:28px;
+      }
+      .marquee-track i{width:9px;height:9px;background:var(--gold);display:inline-block;transform:rotate(45deg);flex-shrink:0}
+      @keyframes marquee{to{transform:translateX(-50%)}}
+
+      /* ---------- sections ---------- */
+      .section{padding:104px 0}
+      .section.alt{background:var(--bg-2)}
+      @media (max-width:760px){.section{padding:70px 0}}
+      .kicker{
+        display:inline-flex;align-items:center;gap:10px;color:var(--gold-deep);
+        font-weight:700;font-size:14px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 14px;
+      }
+      @media (prefers-color-scheme: dark){.kicker{color:var(--gold)}}
+      .kicker::before{content:"";width:34px;height:2px;background:var(--gold)}
+      h2{
+        font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+        font-size:clamp(38px,5.4vw,62px);line-height:1.02;margin:0 0 16px;letter-spacing:.01em;
+      }
+      .lead{font-size:18.5px;color:var(--muted);max-width:62ch;margin:0}
+      .lead strong{color:var(--ink)}
+
+      /* reveal (só esconde quando o JS confirma que vai revelar) */
+      html.reveal [data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s)}
+      html.reveal [data-reveal].in{opacity:1;transform:none}
+
+      /* ---------- sobre ---------- */
+      .sobre-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+      @media (max-width:900px){.sobre-grid{grid-template-columns:1fr;gap:36px}}
+      .sobre-photo{position:relative}
+      .sobre-photo .frame{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative}
+      .sobre-photo img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+      .sobre-photo:hover img{transform:scale(1.045)}
+      .sobre-photo::before{
+        content:"";position:absolute;inset:auto -14px -14px auto;width:58%;height:58%;
+        border-right:3px solid var(--gold);border-bottom:3px solid var(--gold);border-bottom-right-radius:var(--radius);z-index:2;pointer-events:none;
+      }
+      .exp-badge{
+        position:absolute;left:-14px;bottom:26px;z-index:3;background:var(--gold);color:var(--gold-ink);
+        border-radius:12px;padding:14px 20px;box-shadow:0 16px 34px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;
+      }
+      .exp-badge b{font-family:var(--font-display);font-size:40px;line-height:.9;font-weight:700}
+      .exp-badge span{font-weight:700;font-size:14.5px;line-height:1.25}
+      @media (max-width:560px){.exp-badge{left:10px}}
+      .check-list{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:15px}
+      .check-list li{display:flex;gap:13px;align-items:flex-start;font-size:17px}
+      .check-list svg{width:23px;height:23px;color:var(--gold-deep);flex-shrink:0;margin-top:2px}
+      @media (prefers-color-scheme: dark){.check-list svg{color:var(--gold)}}
+      .check-list b{font-weight:700}
+
+      /* ---------- serviços ---------- */
+      #servicos{position:relative;overflow:hidden}
+      .watermark{
+        position:absolute;top:34px;right:-10px;font-family:var(--font-display);font-weight:700;
+        font-size:clamp(120px,20vw,280px);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);
+        pointer-events:none;user-select:none;text-transform:uppercase;
+      }
+      .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px;position:relative;z-index:1}
+      @media (max-width:1020px){.cards{grid-template-columns:1fr 1fr}}
+      @media (max-width:640px){.cards{grid-template-columns:1fr}}
+      .card{
+        background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+        overflow:hidden;transform-style:preserve-3d;will-change:transform;
+        transition:border-color .3s ease,box-shadow .3s ease;
+      }
+      .card:hover{border-color:color-mix(in srgb,var(--gold) 55%,transparent);box-shadow:var(--shadow)}
+      .card .ph{overflow:hidden;position:relative}
+      .card .ph img{aspect-ratio:16/10;object-fit:cover;width:100%;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+      .card:hover .ph img{transform:scale(1.07)}
+      .card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.45))}
+      .card .num{
+        position:absolute;top:14px;left:14px;z-index:2;background:rgba(8,8,8,.72);backdrop-filter:blur(4px);
+        color:var(--gold);font-family:var(--font-display);font-weight:700;font-size:19px;
+        padding:5px 12px;border-radius:8px;border:1px solid rgba(255,196,0,.4);letter-spacing:.08em;
+      }
+      .card-body{padding:24px 24px 28px}
+      .card-body h3{font-family:var(--font-display);font-size:27px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;margin:0 0 9px;line-height:1.1}
+      .card-body p{margin:0;color:var(--muted);font-size:16px}
+      .card-cta{
+        background:linear-gradient(150deg,var(--gold) 0%,var(--gold-deep) 100%);color:var(--gold-ink);
+        display:flex;flex-direction:column;justify-content:center;padding:30px 26px;border:0;
+      }
+      .card-cta h3{color:var(--gold-ink)}
+      .card-cta p{color:rgba(22,18,0,.78)}
+      .card-cta .btn{background:#121212;color:#fff;margin-top:20px;align-self:flex-start}
+      .card-cta .btn:hover{background:#000}
+      .card-wa{
+        display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+        font-weight:700;font-size:15.5px;color:var(--wa);text-decoration:none;
+        border:1px solid color-mix(in srgb,var(--wa) 55%,transparent);border-radius:9px;padding:10px 16px;min-height:44px;
+        transition:background .25s ease,color .25s ease,transform .25s ease;
+      }
+      .card-wa svg{width:18px;height:18px;flex-shrink:0}
+      .card-wa:hover{background:var(--wa);color:#fff;transform:translateY(-2px)}
+
+      /* ---------- vídeo institucional ---------- */
+      .video-band{background:#0a0a0c;color:#f2f0ea;border-block:1px solid rgba(255,255,255,.08)}
+      .video-band .kicker{color:var(--gold)}
+      .video-band .lead{color:#a8a49a}
+      .video-band .lead strong{color:#f2f0ea}
+      .video-shell{max-width:960px;margin:46px auto 0;position:relative}
+      .video-shell::before{
+        content:"";position:absolute;inset:auto -14px -14px auto;width:58%;height:58%;
+        border-right:3px solid var(--gold);border-bottom:3px solid var(--gold);border-bottom-right-radius:var(--radius);z-index:2;pointer-events:none;
+      }
+      .video-frame{
+        position:relative;border-radius:var(--radius);overflow:hidden;background:#000;
+        border:1px solid rgba(255,196,0,.35);box-shadow:0 30px 70px rgba(0,0,0,.55);
+      }
+      .video-frame video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+      .video-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:20px;color:#a8a49a;font-size:15px}
+      .video-meta .chip{
+        display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,196,0,.45);color:#ffd94d;
+        border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+      }
+      .video-meta .chip svg{width:15px;height:15px}
+
+      /* ---------- clipes cinematográficos ---------- */
+      .clips-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:960px;margin:30px auto 0}
+      @media (max-width:640px){.clips-row{grid-template-columns:1fr}}
+      .clip-card{
+        margin:0;border-radius:var(--radius);overflow:hidden;background:#000;
+        border:1px solid rgba(255,196,0,.35);box-shadow:0 22px 50px rgba(0,0,0,.5);
+      }
+      .clip-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
+      .clip-card figcaption{padding:12px 16px;font-size:15px;font-weight:600;color:#f2f0ea;background:#111114}
+
+      /* ---------- marcas atendidas ---------- */
+      .brands-band{background:var(--bg-2);border-block:1px solid var(--line);padding:30px 0}
+      .brands-in{display:flex;flex-wrap:wrap;align-items:center;gap:16px 34px}
+      .brands-label{font-size:13.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+      @media (prefers-color-scheme: dark){.brands-label{color:var(--gold)}}
+      .brands-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:12px 30px}
+      .brands-list li{
+        font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+        font-size:clamp(22px,3vw,30px);color:var(--muted);display:flex;align-items:center;gap:30px;
+      }
+      .brands-list li::after{content:"";width:8px;height:8px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+      .brands-list li:last-child::after{display:none}
+
+      /* ---------- depoimentos ---------- */
+      .t-head{font-family:var(--font-display);font-size:clamp(28px,3.6vw,40px);font-weight:600;text-transform:uppercase;margin:56px 0 0}
+      .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+      @media (max-width:900px){.tgrid{grid-template-columns:1fr}}
+      .tcard{
+        margin:0;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;
+        display:flex;flex-direction:column;gap:14px;
+      }
+      .tcard .tstars{color:var(--gold-deep);font-size:19px;letter-spacing:.18em;line-height:1}
+      @media (prefers-color-scheme: dark){.tcard .tstars{color:var(--gold)}}
+      .tcard blockquote{margin:0;font-size:18.5px;line-height:1.5;font-weight:500}
+      .tcard figcaption{margin-top:auto;display:flex;flex-direction:column;gap:2px}
+      .tcard figcaption b{font-size:16.5px}
+      .tcard figcaption span{font-size:14px;color:var(--muted)}
+
+      /* ---------- processo ---------- */
+      .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+      @media (max-width:860px){.steps{grid-template-columns:1fr}}
+      .step{
+        position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px 30px;overflow:hidden;
+      }
+      .step::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+      .step.in::before{transform:scaleY(1)}
+      .step .n{font-family:var(--font-display);font-size:64px;font-weight:700;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--gold);display:block}
+      .step h3{font-family:var(--font-display);font-size:26px;text-transform:uppercase;margin:14px 0 8px;font-weight:600}
+      .step p{margin:0;color:var(--muted);font-size:16px}
+
+      /* ---------- veículos ---------- */
+      .vehicles{margin-top:46px;border-top:1px solid var(--line)}
+      .vehicle{
+        display:flex;align-items:center;gap:22px;padding:24px 10px;border-bottom:1px solid var(--line);
+        transition:background .3s ease,padding-left .3s ease;text-decoration:none;
+      }
+      .vehicle:hover{background:var(--panel);padding-left:22px}
+      .vehicle svg{width:44px;height:44px;color:var(--gold-deep);flex-shrink:0}
+      @media (prefers-color-scheme: dark){.vehicle svg{color:var(--gold)}}
+      .vehicle h3{font-family:var(--font-display);font-size:clamp(26px,3.4vw,36px);font-weight:600;text-transform:uppercase;margin:0;line-height:1}
+      .vehicle p{margin:2px 0 0;color:var(--muted);font-size:15.5px}
+      .vehicle .go{margin-left:auto;color:var(--muted);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:8px;white-space:nowrap}
+      .vehicle .go svg{width:18px;height:18px;color:inherit}
+      @media (max-width:640px){.vehicle .go span{display:none}}
+
+      /* ---------- galeria ---------- */
+      .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+      @media (max-width:900px){.gallery{grid-template-columns:1fr 1fr}}
+      .gallery figure{margin:0;border-radius:var(--radius);overflow:hidden;position:relative}
+      .gallery img{aspect-ratio:4/3.4;object-fit:cover;width:100%;height:100%;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+      .gallery figure:hover img{transform:scale(1.08)}
+      .gallery figcaption{
+        position:absolute;inset:auto 0 0 0;padding:26px 16px 12px;color:#fff;font-weight:600;font-size:15px;
+        background:linear-gradient(transparent,rgba(0,0,0,.72));
+      }
+      .gallery .wide{grid-column:span 2}
+      .gallery .wide img{aspect-ratio:auto}
+      @media (max-width:900px){.gallery .wide{grid-column:span 2}}
+
+      /* ---------- avaliações ---------- */
+      .review-band{
+        display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;
+        background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:42px 46px;margin-top:8px;
+      }
+      @media (max-width:860px){.review-band{grid-template-columns:1fr;text-align:center;justify-items:center;padding:34px 24px}}
+      .review-score{font-family:var(--font-display);font-size:96px;font-weight:700;line-height:.9;color:var(--gold-deep)}
+      @media (prefers-color-scheme: dark){.review-score{color:var(--gold)}}
+      .stars{display:flex;gap:4px;color:var(--gold-deep)}
+      @media (prefers-color-scheme: dark){.stars{color:var(--gold)}}
+      .stars svg{width:26px;height:26px}
+      .review-band p{margin:10px 0 0;color:var(--muted);font-size:17px;max-width:48ch}
+      .review-band p strong{color:var(--ink)}
+
+      /* ---------- contato / mapa ---------- */
+      .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:26px;margin-top:52px;align-items:stretch}
+      @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+      .info-list{display:grid;gap:16px}
+      .info{
+        background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+        display:flex;gap:17px;align-items:flex-start;text-decoration:none;transition:border-color .3s ease,transform .3s ease;
+      }
+      a.info:hover{border-color:color-mix(in srgb,var(--gold) 55%,transparent);transform:translateX(5px)}
+      .info .ic{width:46px;height:46px;border-radius:11px;background:color-mix(in srgb,var(--gold) 16%,transparent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+      .info .ic svg{width:23px;height:23px;color:var(--gold-deep)}
+      @media (prefers-color-scheme: dark){.info .ic svg{color:var(--gold)}}
+      .info h3{margin:0 0 3px;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+      .info p{margin:0;font-size:18px;font-weight:600;line-height:1.45}
+      .info p small{display:block;font-weight:500;color:var(--muted);font-size:15px}
+      .map-box{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:380px;position:relative;background:var(--panel)}
+      #map{position:absolute;inset:0}
+      #mapFallback{position:absolute;inset:0;display:none;padding:34px;flex-direction:column;justify-content:center;gap:14px;background:var(--panel-2)}
+      #mapFallback.show{display:flex}
+
+      /* ---------- CTA final ---------- */
+      .final-cta{position:relative;overflow:hidden}
+      .final-cta img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+      .final-cta::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,6,7,.9) 20%,rgba(6,6,7,.45) 70%)}
+      .final-cta .inner{position:relative;z-index:2;padding:96px 0;color:#f4f1e9}
+      .final-cta h2{max-width:16ch}
+      .final-cta p{color:#d9d5c9;max-width:52ch;font-size:18.5px}
+
+      /* ---------- footer ---------- */
+      footer{background:#060607;color:#b9b5aa;border-top:1px solid rgba(255,255,255,.08)}
+      @media (prefers-color-scheme: light){footer{background:#17150f;color:#b9b5aa}}
+      .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:60px 0 44px}
+      @media (max-width:860px){.foot{grid-template-columns:1fr;gap:28px}}
+      .foot h3{color:#fff;font-size:14px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 16px}
+      .foot a{color:#b9b5aa;text-decoration:none;display:block;padding:4px 0;font-size:16px}
+      .foot a:hover{color:var(--gold)}
+      .foot p{margin:0;font-size:16px;line-height:1.6}
+      .foot .brand-name{color:#fff}
+      .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0 28px;font-size:14px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+      /* ---------- WhatsApp flutuante ---------- */
+      .wa-float{
+        position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:150;
+        width:62px;height:62px;border-radius:50%;background:var(--wa);color:#fff;
+        display:flex;align-items:center;justify-content:center;text-decoration:none;
+        box-shadow:0 14px 34px rgba(20,140,70,.45);transition:transform .25s ease;
+      }
+      .wa-float:hover{transform:scale(1.08)}
+      .wa-float svg{width:32px;height:32px}
+      .wa-float::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:pulse 2.4s ease-out infinite}
+      @keyframes pulse{0%{transform:scale(.85);opacity:.55}70%,100%{transform:scale(1.2);opacity:0}}
+
+      @media (prefers-reduced-motion: reduce){
+        html{scroll-behavior:auto}
+        *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+        [data-reveal]{opacity:1 !important;transform:none !important}
+        .brand .gear{animation:none}
+        .marquee-track{animation:none}
+        #sparks{display:none}
+        .hero-video{display:none}
+        .wa-float::before{display:none}
+      }
+    </style>
+  </head>
+  <body>
+    <!-- build-fix-hero-2 -->
+    <div id="progress" aria-hidden="true"></div>
+
+    <header id="header">
+      <div class="wrap nav">
+        <a class="brand" href="#inicio" aria-label="Center Lemes — início">
+          <svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="brand-name">Center Lemes<small>Veículos Pesados</small></span>
+        </a>
+        <nav class="nav-links" aria-label="Navegação principal">
+          <a href="#sobre">A oficina</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#veiculos">Veículos</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#avaliacoes">Avaliações</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-gold btn-sm" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Center%20Lemes%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Pedir orçamento
+          </a>
+          <button id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#sobre">A oficina</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#veiculos">Veículos</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="inicio">
+        <div class="hero-media"><video id="heroVideo" class="hero-video" muted loop playsinline autoplay preload="auto" poster="assets/asset-02.jpg" aria-hidden="true" tabindex="-1"><source src="assets/asset-03.mp4" type="video/mp4" /></video><img id="heroImg" src="assets/asset-02.jpg" alt="Fachada da Center Lemes com o letreiro Lemes e caminhões no pátio, em Votorantim" fetchpriority="high" /></div>
+        <canvas id="sparks" aria-hidden="true"></canvas>
+        <div class="wrap hero-content">
+          <span class="hero-badge"><span class="dot"></span> Votorantim · SP — Oficina de pesados</span>
+          <h1>Seu pesado<br />de volta à<br /><span class="stroke">estrada.</span></h1>
+          <p class="hero-sub">Especialistas em <strong>suspensão, freios, soldas, embuchamentos e molejos</strong> de caminhões, carretas, ônibus, vans e caminhonetes — com peças a pronta entrega e orçamento sem compromisso.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Center%20Lemes%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              Chamar no WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+          </div>
+        </div>
+        <div class="wrap" style="position:relative;z-index:3">
+          <div class="hero-stats">
+            <div class="stat"><b><span data-count="15">0</span>+</b><span>anos de experiência em veículos pesados</span></div>
+            <div class="stat"><b><span data-count="5" data-decimal="1">0,0</span></b><span>avaliação dos clientes no Google</span></div>
+            <div class="stat"><b><span data-count="5">0</span></b><span>tipos de veículos atendidos, de vans a carretas</span></div>
+            <div class="stat"><b>Pronta<br />entrega</b><span>peças em estoque para você não perder tempo</span></div>
+          </div>
+        </div>
+        <span class="scroll-cue" aria-hidden="true">Role para conhecer</span>
+      </section>
+      <div class="hazard" aria-hidden="true"></div>
+
+      <!-- MARQUEE -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack">
+          <span>Suspensão <i></i></span><span>Freios <i></i></span><span>Soldas <i></i></span><span>Embuchamentos <i></i></span><span>Arqueamento de molejos <i></i></span><span>Peças a pronta entrega <i></i></span>
+        </div>
+      </div>
+
+      <!-- SOBRE -->
+      <section class="section" id="sobre">
+        <div class="wrap sobre-grid">
+          <div class="sobre-photo" data-reveal>
+            <div class="frame"><img src="assets/asset-04.jpg" alt="Caminhão em manutenção dentro do box da Center Lemes" loading="lazy" /></div>
+            <div class="exp-badge"><b>15</b><span>anos de<br />experiência</span></div>
+          </div>
+          <div>
+            <p class="kicker" data-reveal>A oficina</p>
+            <h2 data-reveal style="--d:.08s">Quem entende de pesado, resolve.</h2>
+            <p class="lead" data-reveal style="--d:.14s">Somos um <strong>posto de molas</strong> e oficina especializada em veículos pesados, com <strong>mais de 15 anos de experiência</strong>. Trabalhamos no dia a dia com caminhões e carretas — suspensão, freios e tudo que mantém o seu pesado rodando. Nossa equipe trabalha com agilidade e excelência no atendimento, porque a gente sabe: para quem vive da estrada, <strong>veículo parado é prejuízo</strong>.</p>
+            <ul class="check-list">
+              <li data-reveal style="--d:.05s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Confiança e garantia</b> — serviço feito para durar, com a segurança que a estrada exige.</span></li>
+              <li data-reveal style="--d:.12s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Peças a pronta entrega</b> — estoque próprio para a manutenção não ficar esperando.</span></li>
+              <li data-reveal style="--d:.19s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Orçamento sem compromisso</b> — avaliamos o veículo e você decide com tudo na mão.</span></li>
+              <li data-reveal style="--d:.26s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Todas as marcas e modelos</b> — caminhões, carretas, ônibus, vans e caminhonetes.</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVIÇOS -->
+      <section class="section alt" id="servicos">
+        <span class="watermark" aria-hidden="true">Lemes</span>
+        <div class="wrap">
+          <p class="kicker" data-reveal>Serviços</p>
+          <h2 data-reveal style="--d:.08s">O que a gente faz pelo seu veículo</h2>
+          <p class="lead" data-reveal style="--d:.14s">Manutenção preventiva e corretiva com equipe especializada em pesados. Passe o mouse ou toque em um serviço para ver de perto.</p>
+
+          <div class="cards">
+            <article class="card tilt" data-reveal>
+              <div class="ph"><span class="num">01</span><img src="assets/asset-05.webp" alt="Mecânico ajustando o feixe de molas da suspensão de um caminhão" loading="lazy" /></div>
+              <div class="card-body">
+                <h3>Suspensão</h3>
+                <p>Manutenção preventiva e corretiva completa em sistemas de suspensão de veículos pesados — estabilidade e conforto de volta ao seu veículo.</p>
+                <a class="card-wa" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20MANUTEN%C3%87%C3%83O%20DE%20SUSPENS%C3%83O%20para%20meu%20caminh%C3%A3o." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Pedir orçamento</a>
+              </div>
+            </article>
+            <article class="card tilt" data-reveal style="--d:.08s">
+              <div class="ph"><span class="num">02</span><img src="assets/asset-06.jpg" alt="Mecânico instalando um disco de freio novo em caminhão" loading="lazy" /></div>
+              <div class="card-body">
+                <h3>Freios</h3>
+                <p>Revisão e manutenção de freios de veículos pesados, garantindo a sua segurança e a de quem está na estrada com você.</p>
+                <a class="card-wa" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20FREIOS%20para%20meu%20caminh%C3%A3o." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Pedir orçamento</a>
+              </div>
+            </article>
+            <article class="card tilt" data-reveal style="--d:.16s">
+              <div class="ph"><span class="num">03</span><img src="assets/asset-07.jpg" alt="Soldador trabalhando com faíscas na parte inferior de um veículo" loading="lazy" /></div>
+              <div class="card-body">
+                <h3>Soldas</h3>
+                <p>Reparo e substituição de peças de forma ágil e segura, com técnicas avançadas de soldagem para estruturas e componentes.</p>
+                <a class="card-wa" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20SOLDA%20para%20meu%20caminh%C3%A3o." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Pedir orçamento</a>
+              </div>
+            </article>
+            <article class="card tilt" data-reveal>
+              <div class="ph"><span class="num">04</span><img src="assets/asset-08.webp" alt="Mão de mecânico trabalhando em bucha de suspensão de caminhão" loading="lazy" /></div>
+              <div class="card-body">
+                <h3>Embuchamentos</h3>
+                <p>Reparos em embuchamentos com a substituição das peças desgastadas por novas, devolvendo o bom estado e a firmeza do conjunto.</p>
+                <a class="card-wa" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20EMBUCHAMENTO%20para%20meu%20caminh%C3%A3o." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Pedir orçamento</a>
+              </div>
+            </article>
+            <article class="card tilt" data-reveal style="--d:.08s">
+              <div class="ph"><span class="num">05</span><img src="assets/asset-09.jpg" alt="Feixe de molas instalado em eixo de caminhão" loading="lazy" /></div>
+              <div class="card-body">
+                <h3>Arqueamento de molejos</h3>
+                <p>Arqueamento e recuperação de feixes de molas para o seu pesado voltar a suportar carga com a altura e a resistência corretas.</p>
+                <a class="card-wa" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20ARQUEAMENTO%20DE%20MOLEJOS%20para%20meu%20caminh%C3%A3o." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Pedir orçamento</a>
+              </div>
+            </article>
+            <article class="card card-cta" data-reveal style="--d:.16s">
+              <h3>Peças a pronta entrega</h3>
+              <p>Estoque próprio de peças para a manutenção começar na hora — sem espera, sem enrolação. Traga seu veículo para uma avaliação.</p>
+              <a class="btn" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Quero%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20ve%C3%ADculo." target="_blank" rel="noopener">Avaliação sem compromisso</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- VÍDEO INSTITUCIONAL -->
+      <section class="section video-band" id="video">
+        <div class="wrap">
+          <p class="kicker" data-reveal>Vídeo</p>
+          <h2 data-reveal style="--d:.08s">A oficina em vídeo</h2>
+          <p class="lead" data-reveal style="--d:.14s">Em <strong>60 segundos</strong>, veja a Center Lemes por dentro: a estrutura, a equipe e o trabalho que coloca seu pesado de volta à estrada.</p>
+          <div class="video-shell" data-reveal style="--d:.2s">
+            <div class="video-frame">
+              <video id="filmeOficina" controls preload="metadata" poster="assets/asset-10.jpg" playsinline aria-label="Vídeo institucional da Center Lemes, de 60 segundos">
+                <source src="assets/asset-11.mp4" type="video/mp4" />
+                Seu navegador não reproduz vídeos. <a href="assets/asset-11.mp4">Baixe o vídeo institucional da Center Lemes</a>.
+              </video>
+            </div>
+            <div class="video-meta">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .8.87 1.3 1.56.88l10.5-6.86a1.03 1.03 0 0 0 0-1.76L9.56 4.26A1.03 1.03 0 0 0 8 5.14z"/></svg> Institucional · 60s</span>
+              <span>Suspensão, freios, soldas, embuchamentos e molejos — com peças a pronta entrega.</span>
+            </div>
+          </div>
+          <div class="clips-row" data-reveal style="--d:.28s">
+            <figure class="clip-card">
+              <video muted loop autoplay playsinline preload="metadata" aria-label="Clipe: detalhe da suspensão e dos molejos na oficina">
+                <source src="assets/asset-12.mp4" type="video/mp4" />
+                Seu navegador não reproduz vídeos.
+              </video>
+              <figcaption>Suspensão e molejos</figcaption>
+            </figure>
+            <figure class="clip-card">
+              <video muted loop autoplay playsinline preload="metadata" aria-label="Clipe: fachada da Center Lemes à noite, com o letreiro aceso">
+                <source src="assets/asset-13.mp4" type="video/mp4" />
+                Seu navegador não reproduz vídeos.
+              </video>
+              <figcaption>Nossa oficina à noite</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESSO -->
+      <section class="section" id="processo">
+        <div class="wrap">
+          <p class="kicker" data-reveal>Como funciona</p>
+          <h2 data-reveal style="--d:.08s">Simples, rápido e sem surpresa</h2>
+          <div class="steps">
+            <div class="step" data-reveal>
+              <span class="n">1</span>
+              <h3>Avaliação</h3>
+              <p>Você traz o veículo e nossa equipe faz a avaliação completa do que precisa ser feito.</p>
+            </div>
+            <div class="step" data-reveal style="--d:.1s">
+              <span class="n">2</span>
+              <h3>Orçamento</h3>
+              <p>Passamos o orçamento detalhado, sem compromisso. Você aprova sabendo exatamente o que vai pagar.</p>
+            </div>
+            <div class="step" data-reveal style="--d:.2s">
+              <span class="n">3</span>
+              <h3>Reparo imediato</h3>
+              <p>Aprovou, a gente começa na hora. Com peças a pronta entrega, seu pesado volta à estrada o quanto antes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VEÍCULOS -->
+      <section class="section alt" id="veiculos">
+        <div class="wrap">
+          <p class="kicker" data-reveal>Especialização em pesados</p>
+          <h2 data-reveal style="--d:.08s">Veículos que a gente atende</h2>
+          <p class="lead" data-reveal style="--d:.14s">Foco total em manutenção e reparo de veículos pesados, de todas as marcas e modelos.</p>
+          <div class="vehicles">
+            <a class="vehicle" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20para%20meu%20caminh%C3%A3o." target="_blank" rel="noopener" data-reveal>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"/><path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+              <div><h3>Caminhões</h3><p>Todas as marcas e modelos</p></div>
+              <span class="go"><span>Orçamento</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="vehicle" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20para%20minha%20carreta." target="_blank" rel="noopener" data-reveal style="--d:.06s">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h13v10H2z"/><path d="M15 9h3.5L22 12.5V16h-7"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
+              <div><h3>Carretas</h3><p>De todos os tipos e tamanhos</p></div>
+              <span class="go"><span>Orçamento</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="vehicle" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20para%20%C3%B4nibus." target="_blank" rel="noopener" data-reveal style="--d:.12s">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M4 11h16"/><path d="M8 15h.01M16 15h.01"/><path d="M7 20v-2M17 20v-2"/></svg>
+              <div><h3>Ônibus</h3><p>Urbanos e rodoviários</p></div>
+              <span class="go"><span>Orçamento</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="vehicle" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20para%20minha%20van." target="_blank" rel="noopener" data-reveal style="--d:.18s">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9"/><path d="M15 9h3l3 3v4h-6"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/><path d="M8.8 17.5h6.4M3 17.5h2.2M18.8 17.5H21"/></svg>
+              <div><h3>Vans</h3><p>Passageiros e utilitárias</p></div>
+              <span class="go"><span>Orçamento</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="vehicle" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20para%20minha%20caminhonete." target="_blank" rel="noopener" data-reveal style="--d:.24s">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16v-3l2-5a2 2 0 0 1 1.9-1.3H12L15 11h4.5A2.5 2.5 0 0 1 22 13.5V16"/><path d="M2 16h20"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/><path d="M8.8 17.5h6.4"/></svg>
+              <div><h3>Caminhonetes</h3><p>Diesel e utilitárias de trabalho</p></div>
+              <span class="go"><span>Orçamento</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARCAS ATENDIDAS -->
+      <div class="brands-band" aria-label="Marcas atendidas">
+        <div class="wrap brands-in">
+          <span class="brands-label">Marcas que a gente atende</span>
+          <ul class="brands-list">
+            <li>Scania</li>
+            <li>Volvo</li>
+            <li>Mercedes-Benz</li>
+            <li>MAN</li>
+            <li>Iveco</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- GALERIA -->
+      <section class="section" id="galeria">
+        <div class="wrap">
+          <p class="kicker" data-reveal>Galeria</p>
+          <h2 data-reveal style="--d:.08s">Trabalho de verdade, todo dia</h2>
+          <div class="gallery">
+            <figure class="wide" data-reveal>
+              <img src="assets/asset-14.jpg" alt="Carreta silo em frente ao galpão da Center Lemes" loading="lazy" />
+              <figcaption>Carretas e silos</figcaption>
+            </figure>
+            <figure data-reveal style="--d:.08s">
+              <img src="assets/asset-15.jpg" alt="Fachada da oficina com o logo dourado Lemes — molas, freio e solda" loading="lazy" />
+              <figcaption>Molas · Freio · Solda</figcaption>
+            </figure>
+            <figure data-reveal style="--d:.16s">
+              <img src="assets/asset-16.jpg" alt="Interior da oficina, com balcão e estoque de peças" loading="lazy" />
+              <figcaption>Peças a pronta entrega</figcaption>
+            </figure>
+            <figure data-reveal>
+              <img src="assets/asset-04.jpg" alt="Caminhão dentro do box durante a manutenção" loading="lazy" />
+              <figcaption>Caminhão no box</figcaption>
+            </figure>
+            <figure data-reveal style="--d:.08s">
+              <img src="assets/asset-17.jpg" alt="Cartão da Lemes Posto de Molas com a lista de serviços da oficina" loading="lazy" />
+              <figcaption>Nossos serviços</figcaption>
+            </figure>
+            <figure class="wide" data-reveal style="--d:.16s">
+              <img src="assets/asset-02.jpg" alt="Fachada da Center Lemes com caminhões no pátio" loading="lazy" />
+              <figcaption>Nossa fachada, em Votorantim</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- AVALIAÇÕES -->
+      <section class="section alt" id="avaliacoes" style="padding-top:0;background:var(--bg)">
+        <div class="wrap">
+          <div class="review-band" data-reveal>
+            <div>
+              <div class="review-score">5,0</div>
+              <div class="stars" role="img" aria-label="Cinco de cinco estrelas">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+              </div>
+            </div>
+            <div>
+              <h2 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Nota máxima de quem já passou por aqui</h2>
+              <p>A Center Lemes tem <strong>avaliação 5,0 no Google</strong>, a nota máxima dos clientes que confiaram seus veículos à nossa equipe. Referência em qualidade e eficiência há mais de uma década na região de Votorantim e Sorocaba.</p>
+            </div>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/place/Lemes+Mola+Freio+Solda/@-23.6280989,-47.5779388,13z/data=!4m10!1m2!2m1!1sLemes+oficina,+Salto+de+Pirapora,+SP!3m6!1s0x94c589a21121b919:0x81b06d75cd320708!8m2!3d-23.5891952!4d-47.4827156!15sCiRMZW1lcyBvZmljaW5hLCBTYWx0byBkZSBQaXJhcG9yYSwgU1CSARBhdXRvX3JlcGFpcl9zaH9w4AEA!16s%2Fg%2F11rd9fxhcw" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </div>
+
+          <h3 class="t-head" data-reveal>O que dizem nossos clientes</h3>
+          <div class="tgrid">
+            <figure class="tcard" data-reveal>
+              <span class="tstars" role="img" aria-label="Avaliação de 5 de 5 estrelas">★★★★★</span>
+              <blockquote>“Qualidade e agilidade. Bons de serviço.”</blockquote>
+              <figcaption><span>Avaliação no Google</span></figcaption>
+            </figure>
+            <figure class="tcard" data-reveal style="--d:.08s">
+              <span class="tstars" role="img" aria-label="Avaliação de 5 de 5 estrelas">★★★★★</span>
+              <blockquote>“Top! Ótimos serviços.”</blockquote>
+              <figcaption><span>Avaliação no Google</span></figcaption>
+            </figure>
+            <figure class="tcard" data-reveal style="--d:.16s">
+              <span class="tstars" role="img" aria-label="Avaliação de 5 de 5 estrelas">★★★★★</span>
+              <blockquote>“Serviço de ótima qualidade.”</blockquote>
+              <figcaption><span>Serviço de freios · Avaliação no Google</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section class="section alt" id="contato">
+        <div class="wrap">
+          <p class="kicker" data-reveal>Fale conosco</p>
+          <h2 data-reveal style="--d:.08s">Passa aqui ou chama no WhatsApp</h2>
+          <p class="lead" data-reveal style="--d:.14s">Estamos às margens da rodovia, em Votorantim — fácil de chegar de caminhão, carreta ou ônibus.</p>
+
+          <div class="contact-grid">
+            <div class="info-list">
+              <a class="info" href="https://www.google.com/maps/place/Lemes+Mola+Freio+Solda/@-23.6280989,-47.5779388,13z/data=!4m10!1m2!2m1!1sLemes+oficina,+Salto+de+Pirapora,+SP!3m6!1s0x94c589a21121b919:0x81b06d75cd320708!8m2!3d-23.5891952!4d-47.4827156!15sCiRMZW1lcyBvZmljaW5hLCBTYWx0byBkZSBQaXJhcG9yYSwgU1CSARBhdXRvX3JlcGFpcl9zaH9w4AEA!16s%2Fg%2F11rd9fxhcw" target="_blank" rel="noopener" data-reveal>
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                <div><h3>Endereço</h3><p>Rod. Raimundo Antunes Soares, 4037<small>Capoavinha — Votorantim/SP · CEP 18120-115</small></p></div>
+              </a>
+              <a class="info" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Center%20Lemes%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" data-reveal style="--d:.07s">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                <div><h3>Telefones e WhatsApp</h3><p>(15) 99691-3174<small>(15) 99652-4484</small></p></div>
+              </a>
+              <a class="info" href="mailto:contato@centerlemes.com.br" data-reveal style="--d:.14s">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+                <div><h3>E-mail</h3><p>contato@centerlemes.com.br</p></div>
+              </a>
+              <div class="info" data-reveal style="--d:.21s">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+                <div><h3>Horário de funcionamento</h3><p>Segunda a sexta, das 8h às 18h</p></div>
+              </div>
+            </div>
+            <div class="map-box" data-reveal style="--d:.1s">
+              <div id="map" role="application" aria-label="Mapa com a localização da Center Lemes"></div>
+              <div id="mapFallback">
+                <h3 style="margin:0;font-family:var(--font-display);font-size:26px;text-transform:uppercase">Center Lemes</h3>
+                <p style="margin:0;color:var(--muted)">Rod. Raimundo Antunes Soares, 4037 — Capoavinha, Votorantim/SP, 18120-115</p>
+                <a class="btn btn-gold btn-sm" style="align-self:flex-start" href="https://www.google.com/maps/place/Lemes+Mola+Freio+Solda/@-23.6280989,-47.5779388,13z/data=!4m10!1m2!2m1!1sLemes+oficina,+Salto+de+Pirapora,+SP!3m6!1s0x94c589a21121b919:0x81b06d75cd320708!8m2!3d-23.5891952!4d-47.4827156!15sCiRMZW1lcyBvZmljaW5hLCBTYWx0byBkZSBQaXJhcG9yYSwgU1CSARBhdXRvX3JlcGFpcl9zaH9w4AEA!16s%2Fg%2F11rd9fxhcw" target="_blank" rel="noopener">Abrir no Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="final-cta">
+        <img class="bg" src="assets/asset-18.jpg" alt="" aria-hidden="true" loading="lazy" />
+        <div class="wrap inner">
+          <h2 data-reveal>Veículo parado é prejuízo. A gente resolve.</h2>
+          <p data-reveal style="--d:.1s">Traga seu caminhão, carreta, ônibus, van ou caminhonete para uma avaliação sem compromisso — e volte para a estrada com segurança.</p>
+          <div style="margin-top:28px" data-reveal="true">
+            <a class="btn btn-gold" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20ve%C3%ADculo." target="_blank" rel="noopener">Agendar avaliação no WhatsApp</a>
+          </div>
+        </div>
+      </section>
+      <div class="hazard" aria-hidden="true"></div>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <span class="brand-name" style="font-family:var(--font-display);font-weight:700;font-size:26px;text-transform:uppercase;letter-spacing:.04em">Center Lemes<small style="display:block;font-size:11.5px;letter-spacing:.32em;color:var(--gold);font-weight:600">Veículos Pesados</small></span>
+          <p style="margin-top:14px">Oficina especializada em manutenção de veículos pesados há 15 anos. Suspensão, freios, soldas, embuchamentos e molejos com peças a pronta entrega.</p>
+        </div>
+        <div>
+          <h3>Navegação</h3>
+          <a href="#sobre">A oficina</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#veiculos">Veículos atendidos</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#avaliacoes">Avaliações</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <a href="https://wa.me/5515996913174" target="_blank" rel="noopener">(15) 99691-3174 — WhatsApp</a>
+          <a href="tel:+5515996524484">(15) 99652-4484</a>
+          <a href="mailto:contato@centerlemes.com.br">contato@centerlemes.com.br</a>
+          <p style="margin-top:8px">Rod. Raimundo Antunes Soares, 4037<br />Capoavinha — Votorantim/SP</p>
+        </div>
+      </div>
+      <div class="wrap foot-bottom">
+        <span>© 2026 Center Lemes — Todos os direitos reservados.</span>
+        <span>Segunda a sexta, das 8h às 18h</span>
+      </div>
+    </footer>
+
+    <a class="wa-float" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Center%20Lemes%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar com a Center Lemes no WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    </a>
+
+    <script src="assets/asset-19.js"></script>
+    <script src="assets/asset-20.js"></script>
+    <script>
+      (function () {
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ---------- hero: fundo em vídeo ----------
+           O clipe vai declarado no HTML (<source> dentro do <video>), igual
+           aos demais vídeos da página: é o caminho que a publicação resolve
+           de forma confiável. Atribuir o src via JavaScript com caminho
+           relativo fazia o vídeo não carregar na versão publicada — só a
+           foto aparecia. Aqui o script só cuida do fade-in e do play. */
+        var heroVideo = document.getElementById("heroVideo");
+        if (heroVideo) {
+          if (reduced) {
+            /* Sem movimento: nem baixa o clipe; fica só a foto. */
+            heroVideo.removeAttribute("autoplay");
+            var heroSrc = heroVideo.querySelector("source");
+            if (heroSrc) heroSrc.remove();
+            heroVideo.load();
+          } else {
+            heroVideo.muted = true;
+            var heroShow = function () { heroVideo.classList.add("on"); };
+            heroVideo.addEventListener("canplay", heroShow);
+            heroVideo.addEventListener("playing", heroShow);
+            if (heroVideo.readyState >= 2) heroShow();
+            var heroPlay = heroVideo.play();
+            if (heroPlay && heroPlay.catch) heroPlay.catch(function () {});
+          }
+        }
+
+        /* ---------- clipes da seção de vídeo: tocar ao entrar na tela ----------
+           Garante que os clipes ambientes estejam tocando (em loop) quando
+           visíveis, mesmo se o autoplay inicial for adiado pelo navegador. */
+        if (!reduced && "IntersectionObserver" in window) {
+          var clipIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              var v = entry.target;
+              if (entry.isIntersecting) {
+                v.muted = true;
+                var p = v.play();
+                if (p && p.catch) p.catch(function () {});
+              } else {
+                v.pause();
+              }
+            });
+          }, { threshold: 0.2 });
+          document.querySelectorAll(".clip-card video").forEach(function (v) {
+            clipIO.observe(v);
+          });
+        }
+
+        /* ---------- header + progresso ---------- */
+        var header = document.getElementById("header");
+        var progress = document.getElementById("progress");
+        var heroImg = document.getElementById("heroImg");
+        var ticking = false;
+        function onScroll() {
+          var y = window.scrollY || 0;
+          header.classList.toggle("scrolled", y > 24);
+          var h = document.documentElement.scrollHeight - window.innerHeight;
+          progress.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+          if (!reduced && heroImg && y < window.innerHeight * 1.2) {
+            heroImg.style.transform = "translateY(" + y * 0.22 + "px)";
+          }
+          ticking = false;
+        }
+        window.addEventListener("scroll", function () {
+          if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+        }, { passive: true });
+        onScroll();
+
+        /* ---------- menu mobile ---------- */
+        var menuBtn = document.getElementById("menuBtn");
+        var mobileMenu = document.getElementById("mobileMenu");
+        menuBtn.addEventListener("click", function () {
+          var open = mobileMenu.classList.toggle("open");
+          menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+          menuBtn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+        });
+        mobileMenu.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            mobileMenu.classList.remove("open");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute("aria-label", "Abrir menu");
+          });
+        });
+
+        /* ---------- marquee: duplicar p/ loop ---------- */
+        var track = document.getElementById("marqueeTrack");
+        track.innerHTML += track.innerHTML;
+
+        /* ---------- reveal on scroll ----------
+           O estado escondido (classe "reveal" no <html>) só é ativado aqui,
+           quando o IntersectionObserver existe e vai revelar os elementos.
+           Sem IO ou com movimento reduzido, nada é escondido: o conteúdo
+           aparece sempre, sem depender da animação. */
+        var revealEls = document.querySelectorAll("[data-reveal]");
+        if (reduced || !("IntersectionObserver" in window)) {
+          revealEls.forEach(function (el) { el.classList.add("in"); });
+        } else {
+          document.documentElement.classList.add("reveal");
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+            });
+          }, { threshold: 0.05, rootMargin: "0px 0px 18% 0px" });
+          revealEls.forEach(function (el) { io.observe(el); });
+          /* trava de segurança: nada fica escondido para sempre */
+          setTimeout(function () {
+            revealEls.forEach(function (el) { el.classList.add("in"); });
+          }, 1600);
+        }
+
+        /* ---------- contadores ---------- */
+        function animateCount(el) {
+          var target = parseFloat(el.getAttribute("data-count"));
+          var decimals = parseInt(el.getAttribute("data-decimal") || "0", 10);
+          if (reduced) { el.textContent = target.toFixed(decimals).replace(".", ","); return; }
+          var start = null, dur = 1400;
+          function frame(ts) {
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = (target * eased).toFixed(decimals).replace(".", ",");
+            if (p < 1) requestAnimationFrame(frame);
+          }
+          requestAnimationFrame(frame);
+        }
+        var counters = document.querySelectorAll("[data-count]");
+        if ("IntersectionObserver" in window) {
+          var cio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); }
+            });
+          }, { threshold: 0.5 });
+          counters.forEach(function (el) { cio.observe(el); });
+        } else {
+          counters.forEach(animateCount);
+        }
+
+        /* ---------- tilt 3D nos cards ---------- */
+        var fine = window.matchMedia("(pointer: fine)").matches;
+        if (fine && !reduced) {
+          document.querySelectorAll(".tilt").forEach(function (card) {
+            var raf = null;
+            card.addEventListener("pointermove", function (ev) {
+              if (raf) return;
+              raf = requestAnimationFrame(function () {
+                var r = card.getBoundingClientRect();
+                var x = (ev.clientX - r.left) / r.width - 0.5;
+                var y = (ev.clientY - r.top) / r.height - 0.5;
+                card.style.transform = "perspective(900px) rotateX(" + (-y * 7).toFixed(2) + "deg) rotateY(" + (x * 7).toFixed(2) + "deg) translateY(-4px)";
+                raf = null;
+              });
+            });
+            card.addEventListener("pointerleave", function () {
+              card.style.transform = "";
+            });
+          });
+        }
+
+        /* ---------- faíscas no hero (canvas) ---------- */
+        var canvas = document.getElementById("sparks");
+        if (canvas && !reduced) {
+          var ctx = canvas.getContext("2d");
+          var W, H, parts = [], running = true;
+          function resize() {
+            W = canvas.width = canvas.offsetWidth;
+            H = canvas.height = canvas.offsetHeight;
+          }
+          resize();
+          window.addEventListener("resize", resize);
+          function spawn() {
+            return {
+              x: Math.random() * W,
+              y: H + 10,
+              r: Math.random() * 2 + 0.6,
+              s: Math.random() * 1.1 + 0.35,
+              drift: (Math.random() - 0.5) * 0.5,
+              a: Math.random() * 0.5 + 0.15,
+              hue: 42 + Math.random() * 10
+            };
+          }
+          for (var i = 0; i < 42; i++) { var p = spawn(); p.y = Math.random() * H; parts.push(p); }
+          function tick() {
+            if (running) {
+              ctx.clearRect(0, 0, W, H);
+              parts.forEach(function (pt, idx) {
+                pt.y -= pt.s;
+                pt.x += pt.drift + Math.sin(pt.y * 0.01 + idx) * 0.2;
+                if (pt.y < -12) parts[idx] = spawn();
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2);
+                ctx.fillStyle = "hsla(" + pt.hue + ",100%,58%," + pt.a + ")";
+                ctx.fill();
+              });
+            }
+            requestAnimationFrame(tick);
+          }
+          tick();
+          new IntersectionObserver(function (entries) {
+            running = entries[0].isIntersecting;
+          }).observe(canvas);
+        }
+
+        /* ---------- mapa ---------- */
+        var mapEl = document.getElementById("map");
+        function showFallback() {
+          document.getElementById("mapFallback").classList.add("show");
+          if (mapEl) mapEl.style.display = "none";
+        }
+        try {
+          if (window.MapHelpers && mapEl) {
+            var place = {
+              label: "Center Lemes",
+              venue: "Center Lemes",
+              address: "Rod. Raimundo Antunes Soares, 4037 - Capoavinha",
+              locality: "Votorantim",
+              region: "SP",
+              lat: -23.5891952,
+              lng: -47.4827156
+            };
+            MapHelpers.mountMap(mapEl, { places: [place], baseStyle: "dark" }, showFallback);
+          } else {
+            showFallback();
+          }
+        } catch (e) {
+          showFallback();
+        }
+      })();
+    </script>
+  </body>
+</html>
