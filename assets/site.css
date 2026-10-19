@@ -752,3 +752,11 @@ svg{max-width:100%}
 .ticker__track span::after{margin-left:36px}
 .watermark{top:auto;bottom:-4%;transform:translate(-50%,0);-webkit-text-stroke:1px rgba(245,163,0,.055);opacity:.5}
 @media (max-width:820px){.watermark{display:none}}
+
+/* ---------- V3.3 — ajustes mobile ---------- */
+@media (max-width:560px){
+  .hero__media{aspect-ratio:1/1;min-height:340px}
+  .hero__actions .btn--wa{display:none}
+  .hero__stamp{display:none}
+}
+.watermark{display:none!important}
