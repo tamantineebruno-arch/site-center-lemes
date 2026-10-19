@@ -61,6 +61,7 @@
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <!-- ================= TOPBAR ================= -->
 <div class="topbar">
@@ -126,6 +127,10 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__fx" aria-hidden="true">
+      <span class="hero__beam"></span>
+      <span class="hero__floor"></span>
+    </div>
     <div class="wrap">
       <div class="hero__grid">
         <div class="hero__copy">
@@ -161,9 +166,9 @@
           </video>
           <span class="hero__stamp">Rod. Raimundo A. Soares · km 4037</span>
           <div class="hero__plate">
-            <div><b>15</b><small>anos em<br>pesados</small></div>
-            <div><b>5,0</b><small>no Google<br>9 avaliações</small></div>
-            <div><b>5</b><small>tipos de<br>veículo</small></div>
+            <div><b class="count" data-count="15" data-suffix="">15</b><small>anos em<br>pesados</small></div>
+            <div><b class="count" data-count="5" data-decimals="1" data-comma="1">5,0</b><small>no Google<br>9 avaliações</small></div>
+            <div><b class="count" data-count="5">5</b><small>tipos de<br>veículo</small></div>
           </div>
         </div>
       </div>
@@ -172,23 +177,37 @@
 
   <div class="rail" aria-label="Números da oficina">
     <div class="wrap rail__in">
-      <div class="rail__item"><b>15 anos</b><span>de oficina em pesados</span></div>
+      <div class="rail__item"><b><span class="count" data-count="15">15</span> anos</b><span>de oficina em pesados</span></div>
       <div class="rail__item"><b>5,0 ★</b><span>avaliação no Google</span></div>
-      <div class="rail__item"><b>6 serviços</b><span>do molejo à peça pronta</span></div>
+      <div class="rail__item"><b><span class="count" data-count="6">6</span> serviços</b><span>do molejo à peça pronta</span></div>
       <div class="rail__item"><b>Seg–Sex</b><span>8h às 18h, sem fechar no almoço</span></div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Votorantim · SP</span><span>Suspensão</span><span>Freios</span><span>Soldas</span>
+      <span>Embuchamentos</span><span>Arqueamento de molejos</span><span>Peças a pronta entrega</span>
+      <span>Caminhões · Carretas · Ônibus · Vans · Caminhonetes</span><span>15 anos em pesados</span>
+      <span>5,0 no Google</span>
+      <span>Votorantim · SP</span><span>Suspensão</span><span>Freios</span><span>Soldas</span>
+      <span>Embuchamentos</span><span>Arqueamento de molejos</span><span>Peças a pronta entrega</span>
+      <span>Caminhões · Carretas · Ônibus · Vans · Caminhonetes</span><span>15 anos em pesados</span>
+      <span>5,0 no Google</span>
     </div>
   </div>
 
   <!-- ================= A OFICINA ================= -->
   <section class="section" id="oficina" aria-labelledby="oficina-title">
+    <span class="watermark" aria-hidden="true">Lemes</span>
     <div class="wrap about">
-      <div class="about__media reveal">
+      <div class="about__media reveal parallax-img">
         <img src="assets/media/letreiro.webp" alt="Fachada da Center Lemes com o letreiro dourado e caminhões no pátio, em Votorantim" width="1200" height="900" loading="lazy" decoding="async" />
         <span class="about__tag">Posto de molas · desde 2011</span>
       </div>
       <div class="about__body reveal">
         <p class="eyebrow">A oficina</p>
-        <h2 class="display h2" id="oficina-title">Quem entende de pesado, <em>resolve.</em></h2>
+        <h2 class="display h2" id="oficina-title"><span class="mask-line"><span>Quem entende de</span></span><span class="mask-line"><span>pesado, <em>resolve.</em></span></span></h2>
         <p>
           Somos um posto de molas e oficina especializada em veículos pesados, com mais de 15 anos de experiência.
           O dia a dia aqui é caminhão, carreta e ônibus — suspensão, freios e tudo que mantém o conjunto rodando.
@@ -225,8 +244,9 @@
   <section class="section section--steel" id="servicos" aria-labelledby="servicos-title">
     <div class="wrap">
       <div class="reveal">
+        <div class="hud"><b>01</b> / Serviços</div>
         <p class="eyebrow">Serviços</p>
-        <h2 class="display h2" id="servicos-title">O que a gente faz <em>pelo seu veículo</em></h2>
+        <h2 class="display h2" id="servicos-title"><span class="mask-line"><span>O que a gente faz</span></span><span class="mask-line"><span><em>pelo seu veículo</em></span></span></h2>
         <p class="lead" style="margin-top:18px">Manutenção preventiva e corretiva com equipe especializada em pesados. Escolha o serviço para ver o que está incluído.</p>
       </div>
 
@@ -252,7 +272,7 @@
           </button>
         </div>
 
-        <div class="svc__panel" id="panel-servicos" role="tabpanel" aria-labelledby="tab-suspensao" tabindex="0">
+        <div class="svc__panel tilt" id="panel-servicos" role="tabpanel" aria-labelledby="tab-suspensao" tabindex="0">
           <figure class="svc__figure">
             <img id="svc-img" src="assets/media/molejos.webp" alt="Mecânico ajustando o feixe de molas da suspensão de um caminhão" width="1400" height="933" loading="lazy" decoding="async" />
             <figcaption id="svc-cap">Suspensão de pesados</figcaption>
@@ -274,8 +294,9 @@
   <section class="section" aria-labelledby="processo-title">
     <div class="wrap">
       <div class="reveal">
+        <div class="hud"><b>02</b> / Processo</div>
         <p class="eyebrow">Como funciona</p>
-        <h2 class="display h2" id="processo-title">Simples, rápido e <em>sem surpresa</em></h2>
+        <h2 class="display h2" id="processo-title"><span class="mask-line"><span>Simples, rápido e</span></span><span class="mask-line"><span><em>sem surpresa</em></span></span></h2>
         <p class="lead" style="margin-top:18px">O caminho do seu veículo aqui é o mesmo de uma ordem de serviço: cada etapa registrada, cada passo aprovado por você.</p>
       </div>
 
@@ -317,8 +338,9 @@
   <section class="section section--steel" id="video" aria-labelledby="video-title">
     <div class="wrap">
       <div class="reveal">
+        <div class="hud"><b>03</b> / Vídeo</div>
         <p class="eyebrow">A oficina em vídeo</p>
-        <h2 class="display h2" id="video-title">Em 60 segundos, <em>por dentro</em></h2>
+        <h2 class="display h2" id="video-title"><span class="mask-line"><span>Em 60 segundos,</span></span><span class="mask-line"><span><em>por dentro</em></span></span></h2>
         <p class="lead" style="margin-top:18px">A estrutura, a equipe e o trabalho que coloca seu pesado de volta à estrada.</p>
       </div>
 
@@ -353,15 +375,17 @@
 
   <!-- ================= FROTA ================= -->
   <section class="section" id="frota" aria-labelledby="frota-title">
+    <span class="watermark" aria-hidden="true">Pesados</span>
     <div class="wrap">
       <div class="reveal">
+        <div class="hud"><b>04</b> / Frota</div>
         <p class="eyebrow">Especialização em pesados</p>
-        <h2 class="display h2" id="frota-title">Veículos que a gente <em>atende</em></h2>
+        <h2 class="display h2" id="frota-title"><span class="mask-line"><span>Veículos que a</span></span><span class="mask-line"><span>gente <em>atende</em></span></span></h2>
         <p class="lead" style="margin-top:18px">Foco total em manutenção e reparo de veículos pesados, de todas as marcas e modelos.</p>
       </div>
 
       <div class="fleet">
-        <article class="fleet__card reveal">
+        <article class="fleet__card reveal tilt">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 17V7h12v10M14 10h4l4 4v3h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
           <b>Caminhões</b><small>Todas as marcas e modelos</small>
           <a href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20para%20meu%20caminh%C3%A3o." target="_blank" rel="noopener">Orçamento →</a>
@@ -400,32 +424,33 @@
   <section class="section" id="galeria" aria-labelledby="galeria-title">
     <div class="wrap">
       <div class="reveal">
+        <div class="hud"><b>05</b> / Galeria</div>
         <p class="eyebrow">Galeria</p>
-        <h2 class="display h2" id="galeria-title">Trabalho de verdade, <em>todo dia</em></h2>
+        <h2 class="display h2" id="galeria-title"><span class="mask-line"><span>Trabalho de verdade,</span></span><span class="mask-line"><span><em>todo dia</em></span></span></h2>
       </div>
 
       <div class="gallery reveal">
-        <button class="shot g1" data-full="assets/media/carreta-silo.webp" data-cap="Carreta silo no pátio">
+        <button class="shot g1 tilt" data-full="assets/media/carreta-silo.webp" data-cap="Carreta silo no pátio">
           <img src="assets/media/carreta-silo.webp" alt="Carreta silo em frente ao galpão da Center Lemes" width="1200" height="900" loading="lazy" decoding="async" />
           <figcaption>Carretas e silos</figcaption>
         </button>
-        <button class="shot g2" data-full="assets/media/box-caminhao.webp" data-cap="Caminhão no box">
+        <button class="shot g2 tilt" data-full="assets/media/box-caminhao.webp" data-cap="Caminhão no box">
           <img src="assets/media/box-caminhao.webp" alt="Caminhão em manutenção dentro do box da Center Lemes" width="768" height="1024" loading="lazy" decoding="async" />
           <figcaption>Caminhão no box</figcaption>
         </button>
-        <button class="shot g3" data-full="assets/media/letreiro.webp" data-cap="Nossa fachada, em Votorantim">
+        <button class="shot g3 tilt" data-full="assets/media/letreiro.webp" data-cap="Nossa fachada, em Votorantim">
           <img src="assets/media/letreiro.webp" alt="Fachada da oficina com o letreiro dourado Lemes" width="1200" height="900" loading="lazy" decoding="async" />
           <figcaption>Nossa fachada</figcaption>
         </button>
-        <button class="shot g4" data-full="assets/media/interior.webp" data-cap="Balcão e peças a pronta entrega">
+        <button class="shot g4 tilt" data-full="assets/media/interior.webp" data-cap="Balcão e peças a pronta entrega">
           <img src="assets/media/interior.webp" alt="Interior da oficina com balcão e estoque de peças" width="1200" height="900" loading="lazy" decoding="async" />
           <figcaption>Peças a pronta entrega</figcaption>
         </button>
-        <button class="shot g5" data-full="assets/media/solda.webp" data-cap="Solda e recuperação de peças">
+        <button class="shot g5 tilt" data-full="assets/media/solda.webp" data-cap="Solda e recuperação de peças">
           <img src="assets/media/solda.webp" alt="Soldador trabalhando com faíscas na parte inferior de um veículo" width="640" height="427" loading="lazy" decoding="async" />
           <figcaption>Solda · recuperação</figcaption>
         </button>
-        <button class="shot g6" data-full="assets/media/cartao-servicos.webp" data-cap="Cartão de serviços da Lemes Posto de Molas">
+        <button class="shot g6 tilt" data-full="assets/media/cartao-servicos.webp" data-cap="Cartão de serviços da Lemes Posto de Molas">
           <img src="assets/media/cartao-servicos.webp" alt="Cartão da Lemes Posto de Molas com a lista de serviços da oficina" width="768" height="1024" loading="lazy" decoding="async" />
           <figcaption>Molas · freio · solda</figcaption>
         </button>
@@ -450,15 +475,15 @@
       </div>
 
       <div class="reviews__grid">
-        <blockquote class="quote reveal">
+        <blockquote class="quote reveal tilt">
           <p>“Qualidade e agilidade. Bons de serviço.”</p>
           <footer>Avaliação no Google</footer>
         </blockquote>
-        <blockquote class="quote reveal">
+        <blockquote class="quote reveal tilt">
           <p>“Top! Ótimos serviços.”</p>
           <footer>Avaliação no Google</footer>
         </blockquote>
-        <blockquote class="quote reveal">
+        <blockquote class="quote reveal tilt">
           <p>“Serviço de ótima qualidade.”</p>
           <footer>Serviço de freios · Avaliação no Google</footer>
         </blockquote>
@@ -470,8 +495,9 @@
   <section class="section" id="contato" aria-labelledby="contato-title">
     <div class="wrap">
       <div class="reveal">
+        <div class="hud"><b>06</b> / Contato</div>
         <p class="eyebrow">Contato</p>
-        <h2 class="display h2" id="contato-title">Passa aqui ou chama <em>no WhatsApp</em></h2>
+        <h2 class="display h2" id="contato-title"><span class="mask-line"><span>Passa aqui ou chama</span></span><span class="mask-line"><span><em>no WhatsApp</em></span></span></h2>
         <p class="lead" style="margin-top:18px">Estamos às margens da rodovia, em Votorantim — fácil de chegar de caminhão, carreta ou ônibus.</p>
       </div>
 
@@ -600,6 +626,22 @@
     </div>
   </div>
 </footer>
+
+<!-- WhatsApp flutuante -->
+<a class="fab" id="fab" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Center%20Lemes%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp com a Center Lemes">
+  <span class="fab__label">Falar no WhatsApp</span>
+  <span class="fab__btn">
+    <span class="fab__ping" aria-hidden="true"></span>
+    <span class="fab__ping" aria-hidden="true"></span>
+    <svg width="31" height="31" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:31px;height:31px;display:block"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.7-.8c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.2s1 2.6 1.1 2.8c.1.2 1.9 3 4.6 4.1 2.3.9 2.8.8 3.3.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.3-.3z"/></svg>
+  </span>
+</a>
+
+<!-- CTA fixo de rodapé (desktop) -->
+<div class="sticky-cta" id="sticky-cta">
+  <p><b>Veículo parado?</b> Orçamento sem compromisso.</p>
+  <a class="btn" href="https://wa.me/5515996913174?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20na%20Center%20Lemes." target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <!-- barra fixa mobile -->
 <div class="mobile-bar" aria-label="Contato rápido">

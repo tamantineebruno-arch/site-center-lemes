@@ -242,3 +242,139 @@
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = String(new Date().getFullYear());
 })();
+
+/* ==========================================================================
+   CAMADA V3 — movimento
+   ========================================================================== */
+(function () {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var WHATS = 'https://wa.me/5515996913174';
+
+  /* ---------- barra de progresso ---------- */
+  var bar = document.getElementById('scroll-progress');
+  var docEl = document.documentElement;
+  function progress() {
+    if (!bar) return;
+    var max = docEl.scrollHeight - window.innerHeight;
+    var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+
+  /* ---------- CTA fixo + FAB ---------- */
+  var stickyCta = document.getElementById('sticky-cta');
+  var hero = document.querySelector('.hero');
+  function stickyState() {
+    if (!stickyCta || !hero) return;
+    var pastHero = window.scrollY > hero.offsetHeight * 0.75;
+    var nearEnd = window.scrollY + window.innerHeight > docEl.scrollHeight - 420;
+    stickyCta.classList.toggle('is-visible', pastHero && !nearEnd);
+  }
+
+  /* ---------- parallax ---------- */
+  var parallaxEls = Array.prototype.slice.call(document.querySelectorAll('.parallax-img img, .hero__media video'));
+  function parallax() {
+    if (reduce) return;
+    var vh = window.innerHeight;
+    parallaxEls.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      var mid = r.top + r.height / 2 - vh / 2;
+      el.style.transform = 'translate3d(0,' + (mid * -0.055).toFixed(2) + 'px,0) scale(1.06)';
+    });
+  }
+
+  /* ---------- contadores ---------- */
+  var counters = Array.prototype.slice.call(document.querySelectorAll('.count'));
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute('data-count')) || 0;
+    var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var comma = el.getAttribute('data-comma') === '1';
+    var dur = 1300, t0 = null;
+    function frame(ts) {
+      if (!t0) t0 = ts;
+      var k = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - k, 3);
+      var val = target * eased;
+      var txt = dec > 0 ? val.toFixed(dec) : Math.round(val).toString();
+      el.textContent = comma ? txt.replace('.', ',') : txt;
+      if (k < 1) window.requestAnimationFrame(frame);
+    }
+    if (reduce) {
+      el.textContent = comma ? String(target).replace('.', ',') : String(target);
+      return;
+    }
+    window.requestAnimationFrame(frame);
+  }
+  if ('IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { cio.observe(el); });
+  }
+
+  /* ---------- tilt 3D + brilho seguindo o cursor ---------- */
+  var tilts = Array.prototype.slice.call(document.querySelectorAll('.tilt'));
+  var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if (fine && !reduce) {
+    tilts.forEach(function (el) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        var rx = (0.5 - py) * 7;
+        var ry = (px - 0.5) * 7;
+        el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-4px)';
+        el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+        el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+      });
+      el.addEventListener('pointerleave', function () {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------- placa do hero: profundidade com o mouse ---------- */
+  var plate = document.querySelector('.hero__plate');
+  var heroMedia = document.querySelector('.hero__media');
+  if (plate && heroMedia && fine && !reduce) {
+    heroMedia.addEventListener('pointermove', function (e) {
+      var r = heroMedia.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      plate.style.setProperty('--plate-x', (py * -7).toFixed(2) + 'deg');
+      plate.style.setProperty('--plate-y', (py * -6).toFixed(1) + 'px');
+      plate.style.transform = 'perspective(900px) rotateX(var(--plate-x)) rotateY(' + (px * 5).toFixed(2) + 'deg) translateY(var(--plate-y))';
+    });
+    heroMedia.addEventListener('pointerleave', function () { plate.style.transform = ''; });
+  }
+
+  /* ---------- botões magnéticos ---------- */
+  if (fine && !reduce) {
+    document.querySelectorAll('.btn').forEach(function (btn) {
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.08;
+        var y = (e.clientY - r.top - r.height / 2) * 0.16;
+        btn.style.transform = 'translate(' + x.toFixed(1) + 'px,' + (y - 2).toFixed(1) + 'px)';
+      });
+      btn.addEventListener('pointerleave', function () { btn.style.transform = ''; });
+    });
+  }
+
+  /* ---------- loop único de scroll ---------- */
+  var ticking = false;
+  function onScrollFrame() {
+    progress();
+    stickyState();
+    parallax();
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScrollFrame); }
+  }, { passive: true });
+  window.addEventListener('resize', onScrollFrame);
+  onScrollFrame();
+})();
