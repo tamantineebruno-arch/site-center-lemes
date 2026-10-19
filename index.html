@@ -295,16 +295,6 @@
       }
       .video-meta .chip svg{width:15px;height:15px}
 
-      /* ---------- clipes cinematográficos ---------- */
-      .clips-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:960px;margin:30px auto 0}
-      @media (max-width:640px){.clips-row{grid-template-columns:1fr}}
-      .clip-card{
-        margin:0;border-radius:var(--radius);overflow:hidden;background:#000;
-        border:1px solid rgba(255,196,0,.35);box-shadow:0 22px 50px rgba(0,0,0,.5);
-      }
-      .clip-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
-      .clip-card figcaption{padding:12px 16px;font-size:15px;font-weight:600;color:#f2f0ea;background:#111114}
-
       /* ---------- marcas atendidas ---------- */
       .brands-band{background:var(--bg-2);border-block:1px solid var(--line);padding:30px 0}
       .brands-in{display:flex;flex-wrap:wrap;align-items:center;gap:16px 34px}
@@ -623,22 +613,6 @@
               <span>Suspensão, freios, soldas, embuchamentos e molejos — com peças a pronta entrega.</span>
             </div>
           </div>
-          <div class="clips-row" data-reveal style="--d:.28s">
-            <figure class="clip-card">
-              <video muted loop autoplay playsinline preload="metadata" aria-label="Clipe: detalhe da suspensão e dos molejos na oficina">
-                <source src="assets/asset-12.mp4" type="video/mp4" />
-                Seu navegador não reproduz vídeos.
-              </video>
-              <figcaption>Suspensão e molejos</figcaption>
-            </figure>
-            <figure class="clip-card">
-              <video muted loop autoplay playsinline preload="metadata" aria-label="Clipe: fachada da Center Lemes à noite, com o letreiro aceso">
-                <source src="assets/asset-13.mp4" type="video/mp4" />
-                Seu navegador não reproduz vídeos.
-              </video>
-              <figcaption>Nossa oficina à noite</figcaption>
-            </figure>
-          </div>
         </div>
       </section>
 
@@ -907,27 +881,6 @@
             var heroPlay = heroVideo.play();
             if (heroPlay && heroPlay.catch) heroPlay.catch(function () {});
           }
-        }
-
-        /* ---------- clipes da seção de vídeo: tocar ao entrar na tela ----------
-           Garante que os clipes ambientes estejam tocando (em loop) quando
-           visíveis, mesmo se o autoplay inicial for adiado pelo navegador. */
-        if (!reduced && "IntersectionObserver" in window) {
-          var clipIO = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              var v = entry.target;
-              if (entry.isIntersecting) {
-                v.muted = true;
-                var p = v.play();
-                if (p && p.catch) p.catch(function () {});
-              } else {
-                v.pause();
-              }
-            });
-          }, { threshold: 0.2 });
-          document.querySelectorAll(".clip-card video").forEach(function (v) {
-            clipIO.observe(v);
-          });
         }
 
         /* ---------- header + progresso ---------- */
